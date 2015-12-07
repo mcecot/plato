@@ -47,7 +47,7 @@ exports['plato'] = {
     var files = './test/fixtures/*.js';
 
     plato.inspect(files, null, {}, function(reports) {
-      test.equal(reports.length, 5, 'Should properly test against the array produced by the glob');
+      test.equal(reports.length, 6, 'Should properly test against the array produced by the glob');
       test.done();
     });
   },
@@ -135,8 +135,7 @@ exports['plato'] = {
   'should run eslint with default config' : function(test) {
 
     var files = [
-      'test/fixtures/a.js',
-      'test/fixtures/b.js'
+      'test/fixtures/c.js'
     ];
 
     test.expect(1);
@@ -145,7 +144,7 @@ exports['plato'] = {
         eslint: 'test/fixtures/.eslintrc.json'
     }, function(reports) {
       var overview = plato.getOverviewReport(reports);
-      test.ok(overview.summary.total.jshint === 8, 'Should contain total eslint issues');
+      test.ok(overview.summary.total.jshint === 4, 'Should contain total eslint issues');
       test.done();
     });
   }
